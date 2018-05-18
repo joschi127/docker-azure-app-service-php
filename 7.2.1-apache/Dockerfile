@@ -64,7 +64,6 @@ RUN   \
    && rm -rf /var/www/html \
    && rm -rf /var/log/apache2 \
    && mkdir -p /home/LogFiles \
-   && ln -s /home/site/wwwroot/web /var/www/html \
    && ln -s /home/LogFiles /var/log/apache2 
 
 
@@ -97,6 +96,6 @@ ENV WEBSITE_ROLE_INSTANCE_ID localRoleInstance
 ENV WEBSITE_INSTANCE_ID localInstance
 ENV PATH ${PATH}:/home/site/wwwroot
 
-WORKDIR /var/www/html
+WORKDIR /home
 
 ENTRYPOINT ["/bin/init_container.sh"]
