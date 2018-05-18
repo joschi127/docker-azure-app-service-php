@@ -27,6 +27,6 @@ docker push "$1"/azure-app-service-php:latest_"$buildnumber"
 docker push "$1"/azure-app-service-php:latest
 docker push "$1"/azure-app-service-php:7.2.1-apache_"$buildnumber"
 docker push "$1"/azure-app-service-php:latest-xdebug_"$buildnumber"
-docker push "$1"/azure-app-service-php:7.2.1-apache-xdebug_"$buildnumber"
+# docker push "$1"/azure-app-service-php:7.2.1-apache-xdebug_"$buildnumber"
 
 docker logout
