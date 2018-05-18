@@ -89,6 +89,7 @@ COPY sshd_config /etc/ssh/
 EXPOSE 2222 8080
 
 ENV APACHE_RUN_USER www-data
+ENV APACHE_DOCUMENT_ROOT /home/site/wwwroot/web
 ENV PHP_VERSION 7.2.1
 
 ENV PORT 8080
@@ -96,6 +97,6 @@ ENV WEBSITE_ROLE_INSTANCE_ID localRoleInstance
 ENV WEBSITE_INSTANCE_ID localInstance
 ENV PATH ${PATH}:/home/site/wwwroot
 
-WORKDIR /home
+WORKDIR /
 
 ENTRYPOINT ["/bin/init_container.sh"]
