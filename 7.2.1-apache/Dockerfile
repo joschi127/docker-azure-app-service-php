@@ -3,7 +3,7 @@ MAINTAINER Azure App Services Container Images <appsvc-images@microsoft.com>
 
 COPY apache2.conf /bin/
 COPY init_container.sh /bin/
-COPY hostingstart.html /home/site/wwwroot/hostingstart.html
+COPY hostingstart.html /home/site/wwwroot/web/hostingstart.html
 
 RUN a2enmod rewrite expires include deflate
 
