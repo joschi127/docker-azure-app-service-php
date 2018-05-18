@@ -44,8 +44,12 @@ RUN apt-get update \
          bcmath \
          mbstring \
          pcntl \
+         xml \
+         exif \
     && docker-php-ext-enable imagick \
-    && docker-php-ext-enable mcrypt
+    && docker-php-ext-enable mcrypt \
+    && docker-php-ext-enable xml \
+    && docker-php-ext-enable exif
 
 RUN   \
    rm -f /var/log/apache2/* \
@@ -60,7 +64,7 @@ RUN   \
    && rm -rf /var/www/html \
    && rm -rf /var/log/apache2 \
    && mkdir -p /home/LogFiles \
-   && ln -s /home/site/wwwroot /var/www/html \
+   && ln -s /home/site/wwwroot/web /var/www/html \
    && ln -s /home/LogFiles /var/log/apache2 
 
 
