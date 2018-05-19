@@ -48,8 +48,6 @@ RUN apt-get update \
          exif \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable mcrypt
-    && docker-php-ext-enable xml \
-    && docker-php-ext-enable exif
 
 RUN   \
    rm -f /var/log/apache2/* \
