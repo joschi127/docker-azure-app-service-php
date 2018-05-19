@@ -17,6 +17,19 @@ cat /etc/motd
 # Get environment variables to show up in SSH session
 eval $(printenv | awk -F= '{print "export " $1"="$2 }' >> /etc/profile)
 
+# Run post deployment script
+if [ "$POST_DEPLOYMENT_SCRIPT" != "" ]; then
+    if [ -e "$POST_DEPLOYMENT_SCRIPT" ]; then
+        echo "Running POST_DEPLOYMENT_SCRIPT: $POST_DEPLOYMENT_SCRIPT ..."
+        echo "(errors will be ignored to avoid failing container startup)"
+        bash $POST_DEPLOYMENT_SCRIPT || true
+    else
+        echo "No POST_DEPLOYMENT_SCRIPT found under path: $POST_DEPLOYMENT_SCRIPT"
+    fi
+else
+    echo "No POST_DEPLOYMENT_SCRIPT defined"
+fi
+
 service ssh start
 APACHE_DOCUMENT_ROOT_ESCAPED="$(echo "$APACHE_DOCUMENT_ROOT" | sed "s/\//\\\\\//g")"
 sed -i "s/{PORT}/$PORT/g" /etc/apache2/apache2.conf

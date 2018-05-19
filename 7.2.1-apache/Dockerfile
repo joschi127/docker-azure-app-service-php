@@ -90,6 +90,7 @@ EXPOSE 2222 8080
 ENV APACHE_RUN_USER www-data
 ENV APACHE_DOCUMENT_ROOT /home/site/wwwroot/web
 ENV PHP_VERSION 7.2.1
+ENV POST_DEPLOYMENT_SCRIPT /home/site/wwwroot/deploy-post-deployment.sh
 
 ENV PORT 8080
 ENV WEBSITE_ROLE_INSTANCE_ID localRoleInstance

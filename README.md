@@ -18,8 +18,18 @@ based web applications:
 * Changed Apache document root to:
 
         /home/site/wwwroot/web (instead of /home/site/wwwroot/)
+        
+  The document root can can be customized by setting the 
+  APACHE_DOCUMENT_ROOT environment variable.
 
 
-* Allow to configure Apache document root by setting env variable:
+* Supports running an own post deployment / container startup script.
+  Just put the script in your project root folder:
 
-        APACHE_DOCUMENT_ROOT = /any/other/path
+        /home/site/wwwroot/deploy-post-deployment.sh
+        
+  If the file exists in the filesystem, the script will be executed
+  during container startu, before starting the Apache webserver.
+
+  The path to the post deployment script can be customized by setting
+  the POST_DEPLOYMENT_SCRIPT environment variable.
