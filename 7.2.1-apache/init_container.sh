@@ -23,7 +23,6 @@ sed -i "s/{PORT}/$PORT/g" /etc/apache2/apache2.conf
 sed -i "s/{APACHE_DOCUMENT_ROOT}/$APACHE_DOCUMENT_ROOT_ESCAPED/g" /etc/apache2/apache2.conf
 sed -i "s/\/var\/www\/html/$APACHE_DOCUMENT_ROOT_ESCAPED/g" /etc/apache2/sites-available/000-default.conf
 mkdir -p "$APACHE_DOCUMENT_ROOT"
-chown $APACHE_RUN_USER "$APACHE_DOCUMENT_ROOT"
 mkdir /var/lock/apache2
 mkdir /var/run/apache2
 /usr/sbin/apache2ctl -D FOREGROUND
