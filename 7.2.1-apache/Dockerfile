@@ -47,7 +47,7 @@ RUN apt-get update \
          xml \
          exif \
     && docker-php-ext-enable imagick \
-    && docker-php-ext-enable mcrypt \
+    && docker-php-ext-enable mcrypt
     && docker-php-ext-enable xml \
     && docker-php-ext-enable exif
 
