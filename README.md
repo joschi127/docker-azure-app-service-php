@@ -1,7 +1,9 @@
 Azure App Service PHP Docker Build
 ==================================
 
-Fork from https://github.com/joschi127/azure-app-service-php
+Fork from https://github.com/Azure-App-Service/php
+
+See details under https://github.com/joschi127/azure-app-service-php
 
 With the following changes, optimized for running Symfony framework
 based web applications:
