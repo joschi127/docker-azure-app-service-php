@@ -45,6 +45,7 @@ RUN apt-get update \
          mbstring \
          pcntl \
          xml \
+         simplexml \
          exif \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable mcrypt

@@ -11,6 +11,7 @@ based web applications:
 
 * Added PHP extensions:
   * xml
+  * simplexml
   * exif
 
 
