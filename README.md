@@ -15,6 +15,15 @@ based web applications:
   * exif
 
 
+* Added PHP INI settings:
+  * memory_limit = 2048M
+  * max_execution_time  = 900
+  * max_input_time      = 300
+  * post_max_size       = 500M
+  * upload_max_filesize = 500M
+  * max_input_vars = 10000
+
+
 * Changed Apache document root to:
 
         /home/site/wwwroot/web (instead of /home/site/wwwroot/)

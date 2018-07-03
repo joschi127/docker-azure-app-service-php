@@ -81,6 +81,12 @@ RUN { \
                 echo 'log_errors=On'; \
                 echo 'display_startup_errors=Off'; \
                 echo 'date.timezone=UTC'; \
+                echo 'memory_limit=2048M'; \
+                echo 'max_execution_time=900'; \
+                echo 'max_input_time=300'; \
+                echo 'post_max_size=500M'; \
+                echo 'upload_max_filesize=500M'; \
+                echo 'max_input_vars=10000'; \
     } > /usr/local/etc/php/conf.d/php.ini
 
 COPY sshd_config /etc/ssh/
