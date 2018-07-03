@@ -1,4 +1,4 @@
-FROM joschi127/php:7.2.5-apache_1807021510
+FROM joschi127/php:7.2.5-apache_1807031516
 MAINTAINER Azure App Services Container Images <appsvc-images@microsoft.com>
 
 RUN yes | pecl install xdebug-beta \
