@@ -15,7 +15,7 @@ EOL
 cat /etc/motd
 
 # Get environment variables to show up in SSH session
-eval $(printenv | grep -v -e '^PWD\|^OLDPWD\|^HOME\|^USER\|^TERM' | awk -F= '{print "export " $1"=\""$2"\"" }' >> /etc/profile)
+eval $(printenv | grep -v -e '^PWD\|^OLDPWD\|^HOME\|^USER\|^TERM' | awk -F= '{print "export " $1"=\""$2"\"" }' > /etc/profile.d/dockerenv.sh)
 
 service ssh start
 sed -i "s/{PORT}/$PORT/g" /etc/apache2/apache2.conf
