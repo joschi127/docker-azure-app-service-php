@@ -53,3 +53,6 @@ for old_image_id in $(docker images | grep joschi127/azure-app-service-php | gre
 do
     docker rmi $old_image_id || echo "Keeping image $old_image_id, seems to be still in use"
 done
+
+# final success message
+echo "Successfully completed"
