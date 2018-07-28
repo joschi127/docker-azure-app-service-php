@@ -39,9 +39,9 @@ docker push joschi127/azure-app-service-php:latest
 #sed -e s/reponame/joschi127/g -e s/buildnumber/"$buildnumber"/g 7.2.5-apache-xdebug/Dockerfile.template > 7.2.5-apache-xdebug/Dockerfile
 
 # build xdebug images
-#docker build -q -t joschi127/azure-app-service-php:5.6.36-apache-xdebug_"$buildnumber" 5.6.36-apache-xdebug
-#docker build -q -t joschi127/azure-app-service-php:7.0.30-apache-xdebug_"$buildnumber" 7.0.30-apache-xdebug
-#docker build -q -t joschi127/azure-app-service-php:7.2.5-apache-xdebug_"$buildnumber" -t joschi127/azure-app-service-php:latest-xdebug_"$buildnumber" 7.2.5-apache-xdebug
+#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:5.6.36-apache-xdebug_"$buildnumber" 5.6.36-apache-xdebug
+#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.0.30-apache-xdebug_"$buildnumber" 7.0.30-apache-xdebug
+#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.2.5-apache-xdebug_"$buildnumber" -t joschi127/azure-app-service-php:latest-xdebug_"$buildnumber" 7.2.5-apache-xdebug
 
 #docker push joschi127/azure-app-service-php:5.6.36-apache-xdebug_"$buildnumber"
 #docker push joschi127/azure-app-service-php:7.0.30-apache-xdebug_"$buildnumber"
