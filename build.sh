@@ -47,3 +47,9 @@ docker push joschi127/azure-app-service-php:latest
 #docker push joschi127/azure-app-service-php:7.0.30-apache-xdebug_"$buildnumber"
 #docker push joschi127/azure-app-service-php:7.2.5-apache-xdebug_"$buildnumber"
 #docker push joschi127/azure-app-service-php:latest-xdebug_"$buildnumber"
+
+# remove old local images, if they are not used
+for old_image_id in $(docker images | grep joschi127/azure-app-service-php | grep -v _latest | grep -v _$buildnumber | awk '{print $3}')
+do
+    docker rmi $old_image_id || true
+done
