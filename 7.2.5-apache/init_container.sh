@@ -15,7 +15,7 @@ EOL
 cat /etc/motd
 
 # Get environment variables to show up in SSH session
-eval $(printenv | awk -F= '{print "export " $1"="$2 }' >> /etc/profile)
+eval $(printenv | awk -F= '{print "export " $1"=\""$2"\"" }' >> /etc/profile)
 
 # Start ssh
 service ssh start
