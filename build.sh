@@ -51,5 +51,5 @@ docker push joschi127/azure-app-service-php:latest
 # remove old local images, if they are not used
 for old_image_id in $(docker images | grep joschi127/azure-app-service-php | grep -v _latest | grep -v _$buildnumber | awk '{print $3}')
 do
-    docker rmi $old_image_id || true
+    docker rmi $old_image_id || echo "Keeping image $old_image_id, seems to be still in use"
 done
