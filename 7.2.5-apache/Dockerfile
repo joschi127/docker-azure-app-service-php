@@ -10,16 +10,20 @@ RUN a2enmod rewrite expires include deflate
 # install the PHP extensions we need
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-         libpng-dev \
-         libjpeg-dev \
-         libpq-dev \
-         libmcrypt-dev \
-         libldap2-dev \
-         libldb-dev \
-         libicu-dev \
-         libgmp-dev \
-         libmagickwand-dev \
-         openssh-server vim curl wget tcptraceroute \
+        libpng-dev \
+        libjpeg-dev \
+        libwebp-dev \
+        libjpeg62-turbo-dev \
+        libxpm-dev \
+        libfreetype6-dev \
+        libpq-dev \
+        libmcrypt-dev \
+        libldap2-dev \
+        libldb-dev \
+        libicu-dev \
+        libgmp-dev \
+        libmagickwand-dev \
+        openssh-server vim curl wget tcptraceroute \
     && chmod 755 /bin/init_container.sh \
     && echo "root:Docker!" | chpasswd \
     && echo "cd /home" >> /etc/bash.bashrc \
@@ -29,24 +33,32 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && pecl install imagick-beta \
     && pecl install mcrypt-1.0.1 \
-    && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+    && docker-php-ext-configure gd \
+        --with-gd \
+        --with-webp-dir \
+        --with-jpeg-dir \
+        --with-png-dir \
+        --with-zlib-dir \
+        --with-xpm-dir \
+        --with-freetype-dir \
+        --enable-gd-native-ttf \
     && docker-php-ext-install gd \
-         mysqli \
-         opcache \
-         pdo \
-         pdo_mysql \
-         pdo_pgsql \
-         pgsql \
-         ldap \
-         intl \
-         gmp \
-         zip \
-         bcmath \
-         mbstring \
-         pcntl \
-         xml \
-         simplexml \
-         exif \
+        mysqli \
+        opcache \
+        pdo \
+        pdo_mysql \
+        pdo_pgsql \
+        pgsql \
+        ldap \
+        intl \
+        gmp \
+        zip \
+        bcmath \
+        mbstring \
+        pcntl \
+        xml \
+        simplexml \
+        exif \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable mcrypt
 
