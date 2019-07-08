@@ -23,12 +23,14 @@ buildnumber=$(date -u +"%Y%m%d_%H%M")
 # build base images
 #docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:5.6.36-apache_"$buildnumber" 5.6.36-apache
 #docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.0.30-apache_"$buildnumber" 7.0.30-apache
-docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.2.5-apache_"$buildnumber" -t joschi127/azure-app-service-php:latest_"$buildnumber" 7.2.5-apache
+#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.2.5-apache_"$buildnumber" -t joschi127/azure-app-service-php:latest_"$buildnumber" 7.2.5-apache
+docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.2-apache_"$buildnumber" -t joschi127/azure-app-service-php:latest_"$buildnumber" 7.2-apache
 docker tag joschi127/azure-app-service-php:latest_"$buildnumber" joschi127/azure-app-service-php:latest
 
 #docker push joschi127/azure-app-service-php:5.6.36-apache_"$buildnumber"
 #docker push joschi127/azure-app-service-php:7.0.30-apache_"$buildnumber"
-docker push joschi127/azure-app-service-php:7.2.5-apache_"$buildnumber"
+#docker push joschi127/azure-app-service-php:7.2.5-apache_"$buildnumber"
+docker push joschi127/azure-app-service-php:7.2-apache_"$buildnumber"
 docker push joschi127/azure-app-service-php:latest_"$buildnumber"
 docker push joschi127/azure-app-service-php:latest
 
