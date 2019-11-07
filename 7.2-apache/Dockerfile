@@ -16,6 +16,8 @@ RUN apt-get update \
         libjpeg62-turbo-dev \
         libxpm-dev \
         libfreetype6-dev \
+        libxpm-dev \
+        libfreetype6-dev \
         libpq-dev \
         libmcrypt-dev \
         libldap2-dev \
@@ -23,7 +25,25 @@ RUN apt-get update \
         libicu-dev \
         libgmp-dev \
         libmagickwand-dev \
-        openssh-server vim curl wget tcptraceroute \
+        libxml2-dev \
+        build-essential \
+        libssl-dev \
+        openssh-server \
+        ca-certificates \
+        python2.7 \
+        git \
+        vim \
+        nano \
+        curl \
+        wget \
+        rsync \
+        unzip \
+        inetutils-ping \
+        tcptraceroute \
+        screen \
+        bash-completion \
+        mysql-client \
+        postgresql-client \
     && chmod 755 /bin/init_container.sh \
     && echo "root:Docker!" | chpasswd \
     && echo "cd /home" >> /etc/bash.bashrc \
@@ -59,6 +79,8 @@ RUN apt-get update \
         xml \
         simplexml \
         exif \
+        sockets \
+        soap \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable mcrypt
 

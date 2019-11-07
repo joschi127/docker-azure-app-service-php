@@ -20,37 +20,26 @@ fi
 # generate build number
 buildnumber=$(date -u +"%Y%m%d_%H%M")
 
-# build base images
-#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:5.6.36-apache_"$buildnumber" 5.6.36-apache
-#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.0.30-apache_"$buildnumber" 7.0.30-apache
-#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.2.5-apache_"$buildnumber" -t joschi127/azure-app-service-php:latest_"$buildnumber" 7.2.5-apache
-docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.2-apache_"$buildnumber" -t joschi127/azure-app-service-php:latest_"$buildnumber" 7.2-apache
-docker tag joschi127/azure-app-service-php:latest_"$buildnumber" joschi127/azure-app-service-php:7.2-apache_latest
-docker tag joschi127/azure-app-service-php:latest_"$buildnumber" joschi127/azure-app-service-php:latest
+# build images
+docker build $NO_CACHE_PARAM -q \
+    -t joschi127/azure-app-service-php:7.2-apache_"$buildnumber" \
+    -t joschi127/azure-app-service-php:7.2-apache_latest \
+    7.2-apache
 
-#docker push joschi127/azure-app-service-php:5.6.36-apache_"$buildnumber"
-#docker push joschi127/azure-app-service-php:7.0.30-apache_"$buildnumber"
-#docker push joschi127/azure-app-service-php:7.2.5-apache_"$buildnumber"
+docker build $NO_CACHE_PARAM -q \
+    -t joschi127/azure-app-service-php:7.3-apache_"$buildnumber" \
+    -t joschi127/azure-app-service-php:7.3-apache_latest \
+    -t joschi127/azure-app-service-php:latest_"$buildnumber" \
+    -t joschi127/azure-app-service-php:latest \
+    7.3-apache
+
+# push images
 docker push joschi127/azure-app-service-php:7.2-apache_"$buildnumber"
 docker push joschi127/azure-app-service-php:7.2-apache_latest
+docker push joschi127/azure-app-service-php:7.3-apache_"$buildnumber"
+docker push joschi127/azure-app-service-php:7.3-apache_latest
 docker push joschi127/azure-app-service-php:latest_"$buildnumber"
 docker push joschi127/azure-app-service-php:latest
-
-# xdebug depends on base images
-# generate dockerfile for xdebug
-#sed -e s/reponame/joschi127/g -e s/buildnumber/"$buildnumber"/g 5.6.36-apache-xdebug/Dockerfile.template > 5.6.36-apache-xdebug/Dockerfile
-#sed -e s/reponame/joschi127/g -e s/buildnumber/"$buildnumber"/g 7.0.30-apache-xdebug/Dockerfile.template > 7.0.30-apache-xdebug/Dockerfile
-#sed -e s/reponame/joschi127/g -e s/buildnumber/"$buildnumber"/g 7.2.5-apache-xdebug/Dockerfile.template > 7.2.5-apache-xdebug/Dockerfile
-
-# build xdebug images
-#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:5.6.36-apache-xdebug_"$buildnumber" 5.6.36-apache-xdebug
-#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.0.30-apache-xdebug_"$buildnumber" 7.0.30-apache-xdebug
-#docker build $NO_CACHE_PARAM -q -t joschi127/azure-app-service-php:7.2.5-apache-xdebug_"$buildnumber" -t joschi127/azure-app-service-php:latest-xdebug_"$buildnumber" 7.2.5-apache-xdebug
-
-#docker push joschi127/azure-app-service-php:5.6.36-apache-xdebug_"$buildnumber"
-#docker push joschi127/azure-app-service-php:7.0.30-apache-xdebug_"$buildnumber"
-#docker push joschi127/azure-app-service-php:7.2.5-apache-xdebug_"$buildnumber"
-#docker push joschi127/azure-app-service-php:latest-xdebug_"$buildnumber"
 
 # remove old local images, if they are not used
 for old_image_id in $(docker images | grep joschi127/azure-app-service-php | grep -v _latest | grep -v _$buildnumber | awk '{print $3}')

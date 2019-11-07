@@ -1,4 +1,4 @@
-FROM php:7.2.5-apache
+FROM php:7.3-apache
 MAINTAINER Azure App Services Container Images <appsvc-images@microsoft.com>
 
 COPY apache2.conf /bin/
@@ -16,6 +16,8 @@ RUN apt-get update \
         libjpeg62-turbo-dev \
         libxpm-dev \
         libfreetype6-dev \
+        libxpm-dev \
+        libfreetype6-dev \
         libpq-dev \
         libmcrypt-dev \
         libldap2-dev \
@@ -23,7 +25,26 @@ RUN apt-get update \
         libicu-dev \
         libgmp-dev \
         libmagickwand-dev \
-        openssh-server vim curl wget tcptraceroute \
+        libxml2-dev \
+        libzip-dev \
+        build-essential \
+        libssl-dev \
+        openssh-server \
+        ca-certificates \
+        python2.7 \
+        git \
+        vim \
+        nano \
+        curl \
+        wget \
+        rsync \
+        unzip \
+        inetutils-ping \
+        tcptraceroute \
+        screen \
+        bash-completion \
+        mysql-client \
+        postgresql-client \
     && chmod 755 /bin/init_container.sh \
     && echo "root:Docker!" | chpasswd \
     && echo "cd /home" >> /etc/bash.bashrc \
@@ -32,7 +53,7 @@ RUN apt-get update \
     && ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
     && rm -rf /var/lib/apt/lists/* \
     && pecl install imagick-beta \
-    && pecl install mcrypt-1.0.1 \
+    && pecl install mcrypt-1.0.3 \
     && docker-php-ext-configure gd \
         --with-gd \
         --with-webp-dir \
@@ -59,6 +80,8 @@ RUN apt-get update \
         xml \
         simplexml \
         exif \
+        sockets \
+        soap \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable mcrypt
 
@@ -107,7 +130,7 @@ EXPOSE 2222 8080
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_DOCUMENT_ROOT /home/site/wwwroot/web
-ENV PHP_VERSION 7.2.5
+ENV PHP_VERSION 7.2
 ENV POST_DEPLOYMENT_SCRIPT /home/site/wwwroot/deploy-post-deployment.sh
 
 ENV PORT 8080
