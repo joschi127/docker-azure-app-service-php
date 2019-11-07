@@ -82,6 +82,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         exif \
         sockets \
         soap \
+        sysvsem \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable mcrypt
 
