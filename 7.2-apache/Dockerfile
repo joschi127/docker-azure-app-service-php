@@ -7,8 +7,9 @@ COPY hostingstart.html /home/site/wwwroot/web/hostingstart.html
 
 RUN a2enmod rewrite expires include deflate
 
-# install the PHP extensions we need
-RUN apt-get update \
+# install extra packages and PHP extensions
+RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
+    && apt-get update \
     && apt-get install -y --no-install-recommends \
         libpng-dev \
         libjpeg-dev \
