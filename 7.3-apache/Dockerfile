@@ -33,6 +33,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         openssh-server \
         ca-certificates \
         python2.7 \
+        imagemagick \
         git \
         vim \
         nano \
