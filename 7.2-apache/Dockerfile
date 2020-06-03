@@ -63,7 +63,6 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         --with-zlib-dir \
         --with-xpm-dir \
         --with-freetype-dir \
-        --enable-gd-native-ttf \
     && docker-php-ext-install gd \
         mysqli \
         opcache \
