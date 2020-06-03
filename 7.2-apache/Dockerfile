@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM php:7.2.31-apache
 MAINTAINER Azure App Services Container Images <appsvc-images@microsoft.com>
 
 COPY apache2.conf /bin/
@@ -44,7 +44,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         tcptraceroute \
         screen \
         bash-completion \
-        mysql-client \
+        mariadb-client \
         postgresql-client \
     && chmod 755 /bin/init_container.sh \
     && echo "root:Docker!" | chpasswd \
@@ -54,7 +54,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
     && ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
     && rm -rf /var/lib/apt/lists/* \
     && pecl install imagick-beta \
-    && pecl install mcrypt-1.0.1 \
+    && pecl install mcrypt-1.0.3 \
     && docker-php-ext-configure gd \
         --with-gd \
         --with-webp-dir \
