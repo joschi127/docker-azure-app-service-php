@@ -45,7 +45,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         tcptraceroute \
         screen \
         bash-completion \
-        mysql-client \
+        mariadb-client \
         postgresql-client \
     && chmod 755 /bin/init_container.sh \
     && echo "root:Docker!" | chpasswd \
@@ -64,7 +64,6 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         --with-zlib-dir \
         --with-xpm-dir \
         --with-freetype-dir \
-        --enable-gd-native-ttf \
     && docker-php-ext-install gd \
         mysqli \
         opcache \
