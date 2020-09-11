@@ -99,7 +99,7 @@ RUN   \
    && rm -rf /var/www/html \
    && rm -rf /var/log/apache2 \
    && mkdir -p /home/LogFiles \
-   && ln -s /home/LogFiles /var/log/apache2 
+   && ln -s /home/LogFiles /var/log/apache2
 
 
 RUN { \
@@ -123,6 +123,7 @@ RUN { \
                 echo 'post_max_size=500M'; \
                 echo 'upload_max_filesize=500M'; \
                 echo 'max_input_vars=10000'; \
+                echo 'expose_php=off'; \
     } > /usr/local/etc/php/conf.d/php.ini
 
 COPY sshd_config /etc/ssh/
