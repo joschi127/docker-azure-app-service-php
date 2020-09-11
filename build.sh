@@ -11,7 +11,7 @@ DOCKER_USERNAME="$1"
 NO_CACHE_PARAM="$2"
 
 # login
-DOCKER_ALREADY_LOGGED_IN_USERNAME="$(docker info | grep 'Username:' | sed 's/Username: //')"
+DOCKER_ALREADY_LOGGED_IN_USERNAME="$(docker info | grep 'Username:' | sed 's/Username://' | awk '{$1=$1;print}')"
 if [ "$DOCKER_ALREADY_LOGGED_IN_USERNAME" = "" ] || [ "$DOCKER_ALREADY_LOGGED_IN_USERNAME" != "$DOCKER_USERNAME" ]
 then
     docker login -u "$DOCKER_USERNAME"
