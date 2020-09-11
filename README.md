@@ -42,3 +42,18 @@ based web applications:
 
   The path to the post deployment script can be customized by setting
   the POST_DEPLOYMENT_SCRIPT environment variable.
+
+
+* Test created image
+
+        # run container
+        docker run --name test --detach --env MYVAR=foo joschi127/azure-app-service-php:latest
+
+        # show logs
+        docker logs test [ -f ]
+
+        # open shell
+        docker exec -i -t test /bin/bash
+
+        # stop and remove
+        docker stop test && docker rm test
