@@ -22,6 +22,7 @@ based web applications:
   * post_max_size       = 500M
   * upload_max_filesize = 500M
   * max_input_vars = 10000
+  * expose_php = off
 
 
 * Changed Apache document root to:
@@ -30,6 +31,10 @@ based web applications:
         
   The document root can can be customized by setting the 
   APACHE_DOCUMENT_ROOT environment variable.
+
+
+* Added Apache security headers:
+  * Header always set Strict-Transport-Security max-age=31536000
 
 
 * Supports running an own post deployment / container startup script.
