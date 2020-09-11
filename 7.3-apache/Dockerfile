@@ -5,7 +5,7 @@ COPY apache2.conf /bin/
 COPY init_container.sh /bin/
 COPY hostingstart.html /home/site/wwwroot/web/hostingstart.html
 
-RUN a2enmod rewrite expires include deflate
+RUN a2enmod rewrite expires include deflate headers
 
 # install extra packages and PHP extensions
 RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
