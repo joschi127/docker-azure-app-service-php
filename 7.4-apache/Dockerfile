@@ -1,4 +1,4 @@
-FROM php:7.3.27-apache
+FROM php:7.4.15-apache
 MAINTAINER Azure App Services Container Images <appsvc-images@microsoft.com>
 
 COPY apache2.conf /bin/
@@ -133,7 +133,7 @@ EXPOSE 2222 8080
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_DOCUMENT_ROOT /home/site/wwwroot/web
-ENV PHP_VERSION 7.3
+ENV PHP_VERSION 7.4
 ENV POST_DEPLOYMENT_SCRIPT /home/site/wwwroot/deploy-post-deployment.sh
 
 ENV PORT 8080
