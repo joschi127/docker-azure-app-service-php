@@ -32,8 +32,8 @@ docker build $NO_CACHE_PARAM -q \
     7.3-apache
 
 docker build $NO_CACHE_PARAM -q \
-    -t joschi127/azure-app-service-php:7.3-apache_"$buildnumber" \
-    -t joschi127/azure-app-service-php:7.3-apache_latest \
+    -t joschi127/azure-app-service-php:7.4-apache_"$buildnumber" \
+    -t joschi127/azure-app-service-php:7.4-apache_latest \
     -t joschi127/azure-app-service-php:latest_"$buildnumber" \
     -t joschi127/azure-app-service-php:latest \
     7.4-apache
