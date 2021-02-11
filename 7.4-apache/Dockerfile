@@ -17,8 +17,6 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         libjpeg62-turbo-dev \
         libxpm-dev \
         libfreetype6-dev \
-        libxpm-dev \
-        libfreetype6-dev \
         libpq-dev \
         libmcrypt-dev \
         libldap2-dev \
@@ -28,11 +26,13 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         libmagickwand-dev \
         libxml2-dev \
         libzip-dev \
+        libonig-dev \
         build-essential \
         libssl-dev \
         openssh-server \
         ca-certificates \
         python2.7 \
+        webp \
         imagemagick \
         git \
         vim \
@@ -57,13 +57,11 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
     && pecl install imagick-beta \
     && pecl install mcrypt-1.0.3 \
     && docker-php-ext-configure gd \
-        --with-gd \
-        --with-webp-dir \
-        --with-jpeg-dir \
-        --with-png-dir \
-        --with-zlib-dir \
-        --with-xpm-dir \
-        --with-freetype-dir \
+        --enable-gd \
+        --with-webp \
+        --with-jpeg \
+        --with-xpm \
+        --with-freetype \
     && docker-php-ext-install gd \
         mysqli \
         opcache \
@@ -84,8 +82,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         sockets \
         soap \
         sysvsem \
-    && docker-php-ext-enable imagick \
-    && docker-php-ext-enable mcrypt
+    && docker-php-ext-enable imagick mcrypt
 
 RUN   \
    rm -f /var/log/apache2/* \

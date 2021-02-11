@@ -17,8 +17,6 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         libjpeg62-turbo-dev \
         libxpm-dev \
         libfreetype6-dev \
-        libxpm-dev \
-        libfreetype6-dev \
         libpq-dev \
         libmcrypt-dev \
         libldap2-dev \
