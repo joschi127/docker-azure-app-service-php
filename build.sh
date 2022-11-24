@@ -50,6 +50,8 @@ docker push joschi127/azure-app-service-php:7.3-apache_"$buildnumber"
 docker push joschi127/azure-app-service-php:7.3-apache_latest
 docker push joschi127/azure-app-service-php:7.4-apache_"$buildnumber"
 docker push joschi127/azure-app-service-php:7.4-apache_latest
+docker push joschi127/azure-app-service-php:8.1-apache_"$buildnumber"
+docker push joschi127/azure-app-service-php:8.1-apache_latest
 docker push joschi127/azure-app-service-php:latest_"$buildnumber"
 docker push joschi127/azure-app-service-php:latest
 
