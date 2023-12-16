@@ -31,7 +31,6 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
         libssl-dev \
         openssh-server \
         ca-certificates \
-        python2.7 \
         webp \
         imagemagick \
         git \
@@ -55,7 +54,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
     && ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
     && rm -rf /var/lib/apt/lists/* \
     && pecl install imagick-beta \
-    && pecl install mcrypt-1.0.5 \
+    && pecl install mcrypt-1.0.6 \
     && docker-php-ext-configure gd \
         --enable-gd \
         --with-webp \
@@ -87,7 +86,7 @@ RUN mkdir -p /usr/share/man/man1/ /usr/share/man/man3/ /usr/share/man/man7/ \
 RUN   \
    rm -f /var/log/apache2/* \
    && rmdir /var/lock/apache2 \
-   && rmdir /var/run/apache2 \
+   && rm -rf /var/run/apache2 \
    && rmdir /var/log/apache2 \
    && chmod 777 /var/log \
    && chmod 777 /var/run \
