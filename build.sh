@@ -46,9 +46,15 @@ docker pull php:8.2-apache
 docker build $NO_CACHE_PARAM -q \
     -t joschi127/azure-app-service-php:8.2-apache_"$buildnumber" \
     -t joschi127/azure-app-service-php:8.2-apache_latest \
+    8.2-apache
+
+docker pull php:8.4-apache
+docker build $NO_CACHE_PARAM -q \
+    -t joschi127/azure-app-service-php:8.4-apache_"$buildnumber" \
+    -t joschi127/azure-app-service-php:8.4-apache_latest \
     -t joschi127/azure-app-service-php:latest_"$buildnumber" \
     -t joschi127/azure-app-service-php:latest \
-    8.2-apache
+    8.4-apache
 
 # push images
 #docker push joschi127/azure-app-service-php:7.2-apache_"$buildnumber"
@@ -61,6 +67,8 @@ docker push joschi127/azure-app-service-php:8.1-apache_"$buildnumber"
 docker push joschi127/azure-app-service-php:8.1-apache_latest
 docker push joschi127/azure-app-service-php:8.2-apache_"$buildnumber"
 docker push joschi127/azure-app-service-php:8.2-apache_latest
+docker push joschi127/azure-app-service-php:8.3-apache_"$buildnumber"
+docker push joschi127/azure-app-service-php:8.3-apache_latest
 docker push joschi127/azure-app-service-php:latest_"$buildnumber"
 docker push joschi127/azure-app-service-php:latest
 
