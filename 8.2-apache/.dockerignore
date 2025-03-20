@@ -1,0 +1,14 @@
+.git*
+docker/*
+!docker/app
+.idea
+*.md
+*.log
+*.sql
+*.sql.gz
+.DS_Store
+Thumbs.db
+docker-compose.yml
+docker-compose.*.yml
+Dockerfile
+Dockerfile.*

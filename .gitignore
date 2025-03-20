@@ -1,2 +1,5 @@
-/.idea
 /*-xdebug/Dockerfile
+.idea
+*.log
+.DS_Store
+Thumbs.db
